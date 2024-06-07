@@ -4,11 +4,14 @@
   "description": "Projeto To do List",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "author": "Lucas Tavares",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.3"
   }
 }
