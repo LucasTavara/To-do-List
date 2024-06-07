@@ -11,47 +11,53 @@
   </head>
   <body class="bg-gray-800 flex items-center justify-center min-h-screen">
     <div class="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-md">
-      <h1
-        class="text-white text-6xl font-bold text-center mb-8"
-        style="font-family: Arial, sans-serif"
-      >
-        VIITRA
-      </h1>
-      <h2 class="text-white text-2xl mb-4">Login</h2>
-      <!-- Formulário de login -->
-      <form>
-        <div class="mb-4">
-          <label class="block text-white text-sm font-bold mb-2" for="username"
-            >Username</label
-          >
-          <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="username"
-            type="text"
-            placeholder="Username"
-          />
-        </div>
-        <div class="mb-6">
-          <label class="block text-white text-sm font-bold mb-2" for="password"
-            >Password</label
-          >
-          <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-            id="password"
-            type="password"
-            placeholder="Password"
-          />
-        </div>
-        <div class="flex items-center justify-between">
-          <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button"
-          >
-            Sign In
-          </button>
-        </div>
-      </form>
+      <h1 class="text-white text-6xl font-bold text-center mb-8">VIITRA</h1>
+      <h2 class="text-white text-2xl mb-4">TO DO LIST</h2>
+      <!-- To-Do List -->
+      <div>
+        <input
+          id="new-task"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
+          type="text"
+          placeholder="Add a new task"
+        />
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4 w-full"
+          onclick="addTask()"
+        >
+          Add Task
+        </button>
+        <ul id="task-list" class="text-white"></ul>
+      </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+      function addTask() {
+        const taskInput = document.getElementById("new-task");
+        const taskText = taskInput.value;
+        if (taskText === "") {
+          alert("Please enter a task");
+          return;
+        }
+
+        const taskList = document.getElementById("task-list");
+
+        const li = document.createElement("li");
+        li.className =
+          "flex items-center justify-between bg-gray-800 p-2 my-2 rounded";
+        li.innerHTML = `
+                <span>${taskText}</span>
+                <button onclick="removeTask(this)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Remove</button>
+            `;
+
+        taskList.appendChild(li);
+        taskInput.value = "";
+      }
+
+      function removeTask(button) {
+        const li = button.parentElement;
+        li.remove();
+      }
+    </script>
   </body>
 </html>
