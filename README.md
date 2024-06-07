@@ -113,28 +113,5 @@ connection.connect((err) => {
   console.log('Connected to the database');
 });
 
-
-### 10. Criação das Tabelas no Banco de Dados
-No MySQL, execute os seguintes comandos para criar as tabelas:
-sql
-CREATE TABLE membro (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    nome VARCHAR(50) NOT NULL,
-    prioridade ENUM('Baixa', 'Média', 'Alta') DEFAULT 'Baixa' NOT NULL
-);
-
-CREATE TABLE tarefa (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
-    descricao VARCHAR(140),
-    finalizada ENUM('False', 'True') NOT NULL,
-    data_termino DATETIME,
-    prioridade ENUM('Baixa', 'Media', 'Alta') NOT NULL,
-    id_membro INT,
-    FOREIGN KEY (id_membro) REFERENCES membro(id)
-);
-
-
 ## Conclusão
 O projeto tem muito a ser feito, isso só é a ponta do Iceberg, como ponta pé inicial cuidei para que fosse feito a parte de configuração e a parte introdutória sobre o front.
