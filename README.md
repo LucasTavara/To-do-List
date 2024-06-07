@@ -68,8 +68,6 @@ json
 "scripts": {
   "dev": "nodemon index.js"
 }
-![Imagem do WhatsApp de 2024-06-07 à(s) 15 46 12_c310ad7c](https://github.com/LucasTavara/To-do-List/assets/141084109/3043938e-2a76-47f8-a04f-0632d24afb2b)
-
 
 ### 6. Configuração do EJS
 No arquivo index.js, configure o EJS:
